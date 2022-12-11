@@ -4,7 +4,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import altair as alt
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
@@ -231,7 +230,7 @@ st.write("")
 st.write("")
 st.write("")
 
-st.caption("Do you want to learn how to create apps like this? Visit [Gerogetown University MSBA](https://b.landing.msbonline.georgetown.edu/lp/msba/?utm_source=google&utm_medium=cpc&utm_term=georgetown+msba&utm_campaign=RWC_GTNMSB_MSBA_Search-PPC_Paid+Search_Google_Branded_NULL_Domestic_Brand-Program_NULL_Evergreen&utm_content=MSBA%7CProgram%7CExact%7CObservation&uadgroup=MSBA%7CProgram%7CExact%7CObservation&uAdCampaign=RWC_GTNMSB_MSBA_Search-PPC_Paid+Search_Google_Branded_NULL_Domestic_Brand-Program_NULL_Evergreen&gclid=CjwKCAiA-dCcBhBQEiwAeWidtWEjo5mc7NXpmnHX_4I4sAg5pQDn1xDXYGwmQ4NCtVOhOP4-JtmCMRoC2_sQAvD_BwE&gclsrc=aw.ds)!")
+st.caption("Do you want to learn how to create apps like this? Visit [Georgetown University MSBA](https://b.landing.msbonline.georgetown.edu/lp/msba/?utm_source=google&utm_medium=cpc&utm_term=georgetown+msba&utm_campaign=RWC_GTNMSB_MSBA_Search-PPC_Paid+Search_Google_Branded_NULL_Domestic_Brand-Program_NULL_Evergreen&utm_content=MSBA%7CProgram%7CExact%7CObservation&uadgroup=MSBA%7CProgram%7CExact%7CObservation&uAdCampaign=RWC_GTNMSB_MSBA_Search-PPC_Paid+Search_Google_Branded_NULL_Domestic_Brand-Program_NULL_Evergreen&gclid=CjwKCAiA-dCcBhBQEiwAeWidtWEjo5mc7NXpmnHX_4I4sAg5pQDn1xDXYGwmQ4NCtVOhOP4-JtmCMRoC2_sQAvD_BwE&gclsrc=aw.ds)!")
 
 #Dr. Lyon/Mr. Dutt,
 
