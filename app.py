@@ -9,6 +9,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
+import plotly.graph_objects as go
 
 #Step 3 - Ingest Data
 
@@ -60,10 +61,10 @@ st.markdown("<h1 style='text-align: center; color: #017BB6;'>LinkedIn Predictor!
 st.caption("<h6 style='text-align: center; color: #017BB6;'>Fill in the values below to predict LinkedIn usage</h6>", unsafe_allow_html=True)
 
 #Age Slider
-age_help = '''Insert an age between 1 and 118.  
-Did you know that the oldest person alive is Lucile Randon at 118 years old?'''
-age = st.slider("Age :spiral_calendar_pad:", max_value = 118, help = age_help)
+age_help = '''Insert an age between 16 and 118.'''
+age = st.slider("Age :spiral_calendar_pad:", min_value = 16, max_value = 118, help = age_help)
 st.write("Your age is", age, ".")
+st.write("The youngest age permitted on LinkedIn is 16 years old, and the oldest person alive is 118!")
 
 st.write("")
 st.write("")
@@ -197,6 +198,21 @@ yourdata = pd.DataFrame({
     "age": [age]
 })
 
+prob = lr.predict_proba(yourdata)
+probfinal = prob[0,1]
+
+fig = go.Figure(go.Indicator(
+    mode = "gauge+number",
+    value = probfinal,
+    title = {'text': 'Probability of Linked in Usage'},
+    gauge = {"axis": {"range": [0, 1]},
+            "steps": [
+                {"range": [0, .5], "color":"red"},
+                {"range": [.5, 1], "color":"lightgreen"}
+            ],
+            "bar":{"color":"yellow"}}
+))
+
 st.write("")
 st.write("")
 st.write("")
@@ -210,10 +226,12 @@ if(li_user == 1):
 else:
     st.markdown("<h3 style='text-align: center; color: #017BB6;'>Based on your inputs, our model predicts that you are not a LinkedIn user!</h3>", unsafe_allow_html=True)
 
+
+st.write(fig)
+
 col1, col2, col3 = st.columns(3)
 
-with col1:
-    st.write(' ')
+with col1:("")
 
 with col2:
     if(li_user == 1):
@@ -221,8 +239,10 @@ with col2:
     else:
         st.image("https://www.square2marketing.com/hubfs/2018%20Blog%20Post%20Images/NoLinkedIn.png", width = 250)
 
-with col3:
-    st.write(' ')
+with col3:("")
+
+
+
 
 st.write("")
 st.write("")
@@ -231,6 +251,7 @@ st.write("")
 st.write("")
 
 st.caption("Do you want to learn how to create apps like this? Visit [Georgetown University MSBA](https://b.landing.msbonline.georgetown.edu/lp/msba/?utm_source=google&utm_medium=cpc&utm_term=georgetown+msba&utm_campaign=RWC_GTNMSB_MSBA_Search-PPC_Paid+Search_Google_Branded_NULL_Domestic_Brand-Program_NULL_Evergreen&utm_content=MSBA%7CProgram%7CExact%7CObservation&uadgroup=MSBA%7CProgram%7CExact%7CObservation&uAdCampaign=RWC_GTNMSB_MSBA_Search-PPC_Paid+Search_Google_Branded_NULL_Domestic_Brand-Program_NULL_Evergreen&gclid=CjwKCAiA-dCcBhBQEiwAeWidtWEjo5mc7NXpmnHX_4I4sAg5pQDn1xDXYGwmQ4NCtVOhOP4-JtmCMRoC2_sQAvD_BwE&gclsrc=aw.ds)!")
+
 
 #Dr. Lyon/Mr. Dutt,
 
