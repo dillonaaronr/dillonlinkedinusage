@@ -204,7 +204,7 @@ probfinal = prob[0,1]
 fig = go.Figure(go.Indicator(
     mode = "gauge+number",
     value = probfinal,
-    title = {'text': 'Probability of Linked in Usage'},
+    title = {'text': 'Probability of LinkedIn Usage'},
     gauge = {"axis": {"range": [0, 1]},
             "steps": [
                 {"range": [0, .5], "color":"red"},
